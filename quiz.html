@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: darkslategray;
+            color: floralwhite;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="questionSpace" ></h1>
+    <input id="userInput"> <br><br>
+    <button onclick="submit()" >Submit</button>
+    <h2 id="scoreSpace"></h2>
+    
+    <script>
+        var questions = ["What is 2+2?", "What is 3+3?", "What is 4+4?"];
+        var answers = ["4", "6", "8"];
+        var counter = 0
+        var score = 0
+        var questionSpace = document.getElementById("questionSpace")
+        var userInput = document.getElementById("userInput")
+        var scoreSpace = document.getElementById("scoreSpace")
+
+
+        questionSpace.innerHTML = questions[0]
+
+
+        function submit() {
+            if(userInput.value == answers[counter]) {
+                score++
+                update()
+            } else {
+                update()
+            } 
+        }
+
+        function update() {
+            if(counter == (questions.length-1)) {
+             scoreSpace.innerHTML = "Your score is " + score
+            } else {
+                counter++
+                questionSpace.innerHTML = questions[counter]
+                userInput.value = ""
+            }
+        }
+    </script>
+</body>
+</html>
